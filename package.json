@@ -1,0 +1,26 @@
+{
+  "name": "employee-database",
+  "version": "1.0.0",
+  "description": "employee-tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andysu7117/employee-database.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jshint": "^2.12.0",
+    "mysql2": "^2.2.5"
+  },
+  "bugs": {
+    "url": "https://github.com/Andysu7117/employee-database/issues"
+  },
+  "homepage": "https://github.com/Andysu7117/employee-database#readme"
+}
