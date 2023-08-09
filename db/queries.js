@@ -1,4 +1,5 @@
 const mysql = require('mysql2');
+const cTable = require(`console.table`);
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -13,17 +14,18 @@ const queries = {
       const sql = 'SELECT * FROM department';
       connection.query(sql, (error, results) => {
         if (error) reject(error);
-        resolve(results);
+        console.table(results);
       });
     });
   },
 
   getAllRoles: () => {
     return new Promise((resolve, reject) => {
-      const sql = 'SELECT * FROM role';
+      const sql =
+        'SELECT role.title AS Title, role.salary AS Salary, department.name AS Department FROM role LEFT JOIN department on deparment..id = role.department_id';
       connection.query(sql, (error, results) => {
         if (error) reject(error);
-        resolve(results);
+        console.table(results);
       });
     });
   },
@@ -33,7 +35,7 @@ const queries = {
       const sql = 'SELECT * FROM employee';
       connection.query(sql, (error, results) => {
         if (error) reject(error);
-        resolve(results);
+        console.table(results);
       });
     });
   },
@@ -43,7 +45,7 @@ const queries = {
       const sql = 'INSERT INTO department (name) VALUES (?)';
       connection.query(sql, [name], (error, result) => {
         if (error) reject(error);
-        resolve(result);
+        console.log('New Department added');
       });
     });
   },
@@ -54,7 +56,7 @@ const queries = {
         'INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)';
       connection.query(sql, [title, salary, departmentId], (error, result) => {
         if (error) reject(error);
-        resolve(result);
+        console.log('New role added');
       });
     });
   },
@@ -68,7 +70,12 @@ const queries = {
         [firstName, lastName, roleId, managerId],
         (error, result) => {
           if (error) reject(error);
-          resolve(result);
+          console.log(
+            firstName,
+            '',
+            lastName,
+            'has been added to the database'
+          );
         }
       );
     });
@@ -79,7 +86,7 @@ const queries = {
       const sql = 'UPDATE employee SET role_id = ? WHERE id = ?';
       connection.query(sql, [newRoleId, employeeId], (error, result) => {
         if (error) reject(error);
-        resolve(result);
+        console.log('Role has been updated');
       });
     });
   },
