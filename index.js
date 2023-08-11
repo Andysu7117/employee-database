@@ -59,7 +59,7 @@ function mainMenu() {
     });
 }
 
-const getAllDepartments = () => {
+const viewAllDepartments = () => {
   return new Promise((resolve, reject) => {
     const sql = 'SELECT * FROM department';
     connection.query(sql, (error, results) => {
@@ -70,7 +70,7 @@ const getAllDepartments = () => {
   });
 };
 
-const getAllRoles = () => {
+const viewAllRoles = () => {
   return new Promise((resolve, reject) => {
     const sql = 'SELECT * FROM role';
     connection.query(sql, (error, results) => {
@@ -81,7 +81,7 @@ const getAllRoles = () => {
   });
 };
 
-const getAllEmployees = () => {
+const viewAllEmployees = () => {
   return new Promise((resolve, reject) => {
     const sql = 'SELECT * FROM employee';
     connection.query(sql, (error, results) => {
@@ -90,18 +90,6 @@ const getAllEmployees = () => {
       mainMenu();
     });
   });
-};
-
-const viewAllDepartments = () => {
-  getAllDepartments();
-};
-
-const viewAllRoles = () => {
-  getAllRoles();
-};
-
-const viewAllEmployees = () => {
-  getAllEmployees();
 };
 
 const addDepartment = () => {
