@@ -72,7 +72,8 @@ const viewAllDepartments = () => {
 
 const viewAllRoles = () => {
   return new Promise((resolve, reject) => {
-    const sql = 'SELECT * FROM role';
+    const sql =
+      'SELECT r.id, r.title, r.salary, d.department_name FROM role AS r LEFT JOIN department AS d ON r.department_id = d.id';
     connection.query(sql, (error, results) => {
       if (error) reject(error);
       console.table(results);
