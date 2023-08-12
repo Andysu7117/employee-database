@@ -22,3 +22,8 @@ or
 ## Usage
 
 Once run the the command line will prompt you with a variety of options to select from including viewing and adding employees, roles and departments as well as updating employees. There is alson an option to exit the command line. An example of how to use the application is shown in the video below:
+
+
+
+https://github.com/Andysu7117/employee-database/assets/104291853/b8f607d8-fac3-4d02-b7e4-4988e3fb8e39
+
