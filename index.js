@@ -83,7 +83,8 @@ const viewAllRoles = () => {
 
 const viewAllEmployees = () => {
   return new Promise((resolve, reject) => {
-    const sql = 'SELECT * FROM employee';
+    const sql =
+      'SELECT e.id, e.first_name, e.last_name, r.title, r.salary, CONCAT (mngr.first_name, " ", mngr.last_name) AS manager_name FROM employee AS e INNER JOIN role AS r ON e.role_id = r.id LEFT JOIN employee AS mngr ON e.manager_id = mngr.id';
     connection.query(sql, (error, results) => {
       if (error) reject(error);
       console.table(results);
